@@ -333,7 +333,89 @@
         // Start role cycler animation after a short delay
         setTimeout(typeRole, 1500);
         
+        // Initialize exit intent
+        initExitIntent();
+        
         console.log('🤖 Agentic AI Portfolio initialized');
+    }
+    
+    // ==========================================================================
+    // Exit Intent Modal
+    // ==========================================================================
+    function initExitIntent() {
+        const exitModal = document.getElementById('exitModal');
+        const exitModalClose = document.getElementById('exitModalClose');
+        const exitModalStay = document.getElementById('exitModalStay');
+        const exitModalOverlay = exitModal?.querySelector('.exit-modal-overlay');
+        
+        if (!exitModal) return;
+        
+        let hasShownModal = false;
+        let hasScrolledEnough = false;
+        
+        // Track if user has engaged with content (scrolled at least 30%)
+        function checkScrollDepth() {
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent > 30) {
+                hasScrolledEnough = true;
+            }
+        }
+        
+        window.addEventListener('scroll', throttle(checkScrollDepth, 200));
+        
+        // Detect exit intent (mouse leaving viewport from top)
+        function handleMouseLeave(e) {
+            // Only trigger if mouse is leaving from the top
+            if (e.clientY <= 0 && !hasShownModal && hasScrolledEnough) {
+                showExitModal();
+            }
+        }
+        
+        // Show modal
+        function showExitModal() {
+            hasShownModal = true;
+            exitModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Store in session so we don't show again
+            sessionStorage.setItem('exitModalShown', 'true');
+        }
+        
+        // Hide modal
+        function hideExitModal() {
+            exitModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Check if already shown in this session
+        if (sessionStorage.getItem('exitModalShown')) {
+            hasShownModal = true;
+        }
+        
+        // Event listeners
+        document.addEventListener('mouseleave', handleMouseLeave);
+        
+        if (exitModalClose) {
+            exitModalClose.addEventListener('click', hideExitModal);
+        }
+        
+        if (exitModalStay) {
+            exitModalStay.addEventListener('click', hideExitModal);
+        }
+        
+        if (exitModalOverlay) {
+            exitModalOverlay.addEventListener('click', hideExitModal);
+        }
+        
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && exitModal.classList.contains('active')) {
+                hideExitModal();
+            }
+        });
+        
+        // Also trigger on back button / tab close attempt (beforeunload)
+        // This is a softer approach - the modal provides a better UX
     }
 
     // ==========================================================================
