@@ -121,6 +121,60 @@
     }
 
     // ==========================================================================
+    // Role Cycler - Typing Animation for AI Specializations
+    // ==========================================================================
+    const roles = [
+        'Agentic AI Systems',
+        'Multi-Agent Workflows',
+        'RAG Pipelines',
+        'LLM-Powered Automation',
+        'Autonomous Decision Engines',
+        'AI Orchestration Platforms',
+        'Intelligent Chatbots',
+        'Enterprise AI Solutions',
+        'Real-time Tool Calling',
+        'GenAI Applications'
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 80;
+
+    function typeRole() {
+        const roleCycler = document.getElementById('role-cycler');
+        if (!roleCycler) return;
+
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            // Deleting characters
+            roleCycler.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 40;
+        } else {
+            // Typing characters
+            roleCycler.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 80;
+        }
+
+        // Check if word is complete
+        if (!isDeleting && charIndex === currentRole.length) {
+            // Pause at end of word
+            typingSpeed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            // Move to next word
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typingSpeed = 500;
+        }
+
+        setTimeout(typeRole, typingSpeed);
+    }
+
+    // ==========================================================================
     // Typing Effect for Hero Title (Optional Enhancement)
     // ==========================================================================
     function initTypingEffect() {
@@ -131,12 +185,12 @@
         heroSubtitle.textContent = '';
         heroSubtitle.style.opacity = '1';
         
-        let charIndex = 0;
+        let charIdx = 0;
         
         function type() {
-            if (charIndex < text.length) {
-                heroSubtitle.textContent += text.charAt(charIndex);
-                charIndex++;
+            if (charIdx < text.length) {
+                heroSubtitle.textContent += text.charAt(charIdx);
+                charIdx++;
                 setTimeout(type, 50);
             }
         }
@@ -212,8 +266,8 @@
         // Initial calls
         handleNavbarScroll();
         
-        // Optional: Enable typing effect
-        // initTypingEffect();
+        // Start role cycler animation after a short delay
+        setTimeout(typeRole, 1500);
         
         console.log('🤖 Agentic AI Portfolio initialized');
     }

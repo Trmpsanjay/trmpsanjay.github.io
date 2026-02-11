@@ -58,11 +58,21 @@
             <div class="gradient-orb orb-3"></div>
         </div>
         <div class="hero-content">
-            <p class="hero-subtitle reveal">AI Engineer & System Architect</p>
-            <h1 class="hero-title reveal">
+            <p class="hero-greeting reveal">Hello, I'm</p>
+            <h1 class="hero-name reveal">
+                <span class="name-text">SANJAY KUMAR</span>
+            </h1>
+            <div class="hero-roles reveal">
+                <span class="role-prefix">I build </span>
+                <span class="role-wrapper">
+                    <span class="role-text" id="role-cycler"></span>
+                    <span class="role-cursor">|</span>
+                </span>
+            </div>
+            <h2 class="hero-tagline reveal">
                 Building Autonomous AI Systems<br>
                 <span class="gradient-text">That Think, Decide, and Act</span>
-            </h1>
+            </h2>
             <p class="hero-description reveal">
                 Specializing in Agentic AI architectures that transform enterprise workflows through 
                 autonomous decision-making, multi-agent orchestration, and intelligent automation. 
@@ -146,16 +156,18 @@
                 <div class="skill-category reveal">
                     <div class="category-header">
                         <span class="category-icon">🤖</span>
-                        <h3>Agentic AI Core</h3>
+                        <h3>Generative AI & Agentic Systems</h3>
                     </div>
                     <div class="skill-tags">
+                        <span class="skill-tag featured">RAG</span>
                         <span class="skill-tag featured">LangChain</span>
                         <span class="skill-tag featured">LangGraph</span>
                         <span class="skill-tag featured">LangSmith</span>
                         <span class="skill-tag featured">MCP</span>
+                        <span class="skill-tag featured">A2A (Agent-to-Agent)</span>
                         <span class="skill-tag">Multi-Agent Systems</span>
-                        <span class="skill-tag">RAG Pipelines</span>
                         <span class="skill-tag">Tool Calling</span>
+                        <span class="skill-tag">Action Workflows</span>
                     </div>
                 </div>
                 <div class="skill-category reveal">
@@ -164,63 +176,85 @@
                         <h3>LLM Platforms</h3>
                     </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">Azure OpenAI</span>
-                        <span class="skill-tag">Gemini</span>
-                        <span class="skill-tag">Anthropic Claude</span>
-                        <span class="skill-tag">Llama</span>
+                        <span class="skill-tag featured">Azure OpenAI</span>
+                        <span class="skill-tag featured">AWS Bedrock</span>
+                        <span class="skill-tag featured">Gemini</span>
+                        <span class="skill-tag featured">Anthropic Claude</span>
+                        <span class="skill-tag featured">Llama</span>
                     </div>
                 </div>
                 <div class="skill-category reveal">
                     <div class="category-header">
                         <span class="category-icon">⚡</span>
-                        <h3>Programming</h3>
+                        <h3>Programming Languages</h3>
                     </div>
                     <div class="skill-tags">
                         <span class="skill-tag featured">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Spring Boot</span>
-                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag featured">Java</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">JavaScript</span>
                     </div>
                 </div>
                 <div class="skill-category reveal">
                     <div class="category-header">
-                        <span class="category-icon">🏗️</span>
-                        <h3>Infrastructure & DevOps</h3>
+                        <span class="category-icon">🛠️</span>
+                        <h3>Frameworks & Tools</h3>
                     </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">OpenShift</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag featured">FastAPI</span>
+                        <span class="skill-tag featured">REST API</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">ETL</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">PowerBI</span>
+                        <span class="skill-tag">Tableau</span>
                     </div>
                 </div>
                 <div class="skill-category reveal">
                     <div class="category-header">
                         <span class="category-icon">📊</span>
-                        <h3>Data Engineering</h3>
+                        <h3>Data & Cloud</h3>
                     </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag featured">SQL</span>
+                        <span class="skill-tag featured">PostgreSQL</span>
+                        <span class="skill-tag featured">Snowflake</span>
                         <span class="skill-tag">Kafka</span>
                         <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">CockroachDB</span>
                         <span class="skill-tag">AWS S3</span>
                         <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">ETL</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-header">
+                        <span class="category-icon">🏗️</span>
+                        <h3>DevOps & Infrastructure</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag featured">Docker</span>
+                        <span class="skill-tag featured">Kubernetes</span>
+                        <span class="skill-tag featured">OpenShift</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Vault</span>
+                        <span class="skill-tag">Splunk</span>
                     </div>
                 </div>
                 <div class="skill-category reveal">
                     <div class="category-header">
                         <span class="category-icon">🔬</span>
-                        <h3>Core Concepts</h3>
+                        <h3>AI/ML & Core Concepts</h3>
                     </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag featured">Artificial Intelligence</span>
+                        <span class="skill-tag featured">Machine Learning</span>
                         <span class="skill-tag">Neural Networks</span>
-                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">Data Structures & Algorithms</span>
+                        <span class="skill-tag">Problem Solving</span>
                         <span class="skill-tag">System Design</span>
+                        <span class="skill-tag">API Design</span>
                     </div>
                 </div>
             </div>
@@ -305,7 +339,8 @@
                         <p class="project-description">
                             An autonomous AI system that transforms how enterprises manage software licenses. 
                             Users converse naturally while the agent reasons, decides, and executes complex 
-                            workflows—from license discovery to compliance verification.
+                            workflows—from license discovery to compliance verification. Features Dynamic UI 
+                            rendering and intelligent form generation for seamless user interactions.
                         </p>
                         <div class="project-features">
                             <div class="feature">
@@ -315,6 +350,14 @@
                             <div class="feature">
                                 <span class="feature-icon">🛠️</span>
                                 <span>Real-time DB/API tool calling</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">🎨</span>
+                                <span>Dynamic UI generation</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">📝</span>
+                                <span>AI-powered Dynamic Forms</span>
                             </div>
                             <div class="feature">
                                 <span class="feature-icon">🔐</span>
