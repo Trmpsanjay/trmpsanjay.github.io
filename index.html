@@ -1,64 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- BootStrap Installation -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-
-    <!-- Fonts Installation -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
-
-    <!-- CSS File Link -->
-    <link rel="stylesheet" href="css/styles.css">
-
-    <title>Welcome To My Portfolio Website</title>
+    <meta name="description" content="Sanjay Kumar - AI Engineer specializing in Agentic AI Systems, autonomous decision-making workflows, and intelligent automation. Building AI that thinks, decides, and acts.">
+    <meta name="keywords" content="Agentic AI, AI Engineer, LangChain, LangGraph, Multi-Agent Systems, RAG, Machine Learning, Software Engineer">
+    <meta name="author" content="Sanjay Kumar">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sanjay Kumar | Agentic AI Engineer">
+    <meta property="og:description" content="Building Autonomous AI Systems That Think, Decide, and Act">
+    <meta property="og:url" content="https://trmpsanjay.github.io">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sanjay Kumar | Agentic AI Engineer">
+    <meta name="twitter:description" content="Building Autonomous AI Systems That Think, Decide, and Act">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <title>Sanjay Kumar | Agentic AI Engineer</title>
 </head>
-<header>
-    <section class="navSection">
-        <div class="myLogo">
-            <h1 class="logoHeading">SANJAY KUMAR</h1>
-        </div>
-        <nav>
-            <a href="#">HOME</a>
-            <a href="https://github.com/trmpsanjay" target="_blank">GITHUB</a>
-            <a href="https://www.facebook.com/SANJAYKUMAR201A" target="_blank">FACEBOOK</a>
-            <a href="https://www.linkedin.com/in/sanjay-kumar-597a55168/" target="_blank">LINKEDIN</a>
-            <a href="https://wa.me/917296061111" target="_blank">CONTACT</a>
-
-
-        </nav>
-    </section>
-    <main>
-        <div class="left">
-            <h3>Hello</h3>
-            <h1>I am sanjay Kumar</h1>
-            <h2>I am a Computer Science Student</h2>
-            <a class="hireMe" href="mailto:sanjay@ug.cusat.ac.in">HIRE ME</a>
-            <a class="contactMe btn btn-outline-success" href="https://wa.me/917296061111" target="_blank">Contact Me</a>
-        </div>
-        <div class="right">
-            <img src="images/right.png" alt="programmerImage">
-        </div>
-    </main>
-</header>
-
-
-
 <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">SK</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <p class="hero-subtitle reveal">AI Engineer & System Architect</p>
+            <h1 class="hero-title reveal">
+                Building Autonomous AI Systems<br>
+                <span class="gradient-text">That Think, Decide, and Act</span>
+            </h1>
+            <p class="hero-description reveal">
+                Specializing in Agentic AI architectures that transform enterprise workflows through 
+                autonomous decision-making, multi-agent orchestration, and intelligent automation. 
+                Bridging the gap between LLM capabilities and real-world business outcomes.
+            </p>
+            <div class="hero-cta reveal">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+            <div class="hero-stats reveal">
+                <div class="stat">
+                    <span class="stat-number">4+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">80%</span>
+                    <span class="stat-label">Efficiency Gains</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">AI Systems Built</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Crafting Intelligence Into Systems</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text reveal">
+                    <p class="lead">
+                        I'm <strong>Sanjay Kumar</strong>, an AI Engineer at <strong>Cisco Systems</strong> with a passion for 
+                        building autonomous systems that don't just respond—they <em>reason, decide, and execute</em>.
+                    </p>
+                    <p>
+                        Currently pursuing my M.Tech in Artificial Intelligence at the <strong>Indian Institute of Science (IISc)</strong>, 
+                        I combine academic rigor with hands-on enterprise experience to create AI solutions that deliver measurable impact.
+                    </p>
+                    <p>
+                        My work focuses on the cutting edge of Agentic AI—designing multi-agent systems, orchestrating complex 
+                        workflows, and building infrastructure that scales. From real-time license management to autonomous 
+                        data pipelines, I architect systems where AI becomes a true decision-maker.
+                    </p>
+                </div>
+                <div class="about-cards reveal">
+                    <div class="info-card">
+                        <div class="card-icon">🎓</div>
+                        <h3>Education</h3>
+                        <p><strong>M.Tech AI</strong> - IISc Bangalore (2024-2026)</p>
+                        <p><strong>B.Tech CS</strong> - CUSAT (2018-2022)</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">💼</div>
+                        <h3>Current Role</h3>
+                        <p><strong>Software Engineer</strong></p>
+                        <p>Cisco Systems, Bengaluru</p>
+                        <p class="duration">Jan 2022 - Present</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Technical Arsenal</span>
+                <h2 class="section-title">Technologies I Command</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <div class="category-header">
+                        <span class="category-icon">🤖</span>
+                        <h3>Agentic AI Core</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag featured">LangChain</span>
+                        <span class="skill-tag featured">LangGraph</span>
+                        <span class="skill-tag featured">LangSmith</span>
+                        <span class="skill-tag featured">MCP</span>
+                        <span class="skill-tag">Multi-Agent Systems</span>
+                        <span class="skill-tag">RAG Pipelines</span>
+                        <span class="skill-tag">Tool Calling</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-header">
+                        <span class="category-icon">🧠</span>
+                        <h3>LLM Platforms</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure OpenAI</span>
+                        <span class="skill-tag">Gemini</span>
+                        <span class="skill-tag">Anthropic Claude</span>
+                        <span class="skill-tag">Llama</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-header">
+                        <span class="category-icon">⚡</span>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag featured">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-header">
+                        <span class="category-icon">🏗️</span>
+                        <h3>Infrastructure & DevOps</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">OpenShift</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-header">
+                        <span class="category-icon">📊</span>
+                        <h3>Data Engineering</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Snowflake</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">AWS S3</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">ETL</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="category-header">
+                        <span class="category-icon">🔬</span>
+                        <h3>Core Concepts</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Neural Networks</span>
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">System Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Career Journey</span>
+                <h2 class="section-title">Experience & Impact</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="company-info">
+                                <h3 class="company-name">Cisco Systems</h3>
+                                <span class="role">Software Engineer</span>
+                            </div>
+                            <div class="timeline-meta">
+                                <span class="location">Bengaluru, India</span>
+                                <span class="duration">Jan 2022 - Present</span>
+                            </div>
+                        </div>
+                        <ul class="achievements">
+                            <li>
+                                <strong>Architected AskLicense</strong>, an agentic AI assistant leveraging LangGraph workflows 
+                                and real-time tool calling to automate license discovery, assignment, transfers, and compliance 
+                                checks—enabling conversational enterprise license management with role-based access control.
+                            </li>
+                            <li>
+                                <strong>Pioneered Agentic AI adoption</strong> by designing action-based workflows that execute 
+                                autonomous decisions through real-time DB/API integrations, transforming static chatbots into 
+                                intelligent agents capable of multi-step reasoning.
+                            </li>
+                            <li>
+                                <strong>Engineered a multi-database comparison engine</strong> that reduced data reconciliation 
+                                time by <span class="highlight">80%</span> while improving accuracy by <span class="highlight">20%</span>, 
+                                enabling faster decision-making across distributed systems.
+                            </li>
+                            <li>
+                                <strong>Orchestrated enterprise data pipelines</strong> (PostgreSQL/GCP → Snowflake) supporting 
+                                both batch and streaming workloads, ensuring zero-downtime data flow at scale with advanced 
+                                caching that boosted efficiency by <span class="highlight">80%</span> for large tables.
+                            </li>
+                            <li>
+                                <strong>Designed and deployed AI infrastructure</strong> on OpenShift/Kubernetes with comprehensive 
+                                monitoring, auto-scaling, and high availability—establishing the DevOps foundation for all GenAI 
+                                applications in the organization.
+                            </li>
+                            <li>
+                                <strong>Delivered Centralized Password Management</strong>, a microservices-based system with 
+                                secure secret storage and passwordless authentication—eliminating deployment downtime caused 
+                                by configuration changes.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Featured Work</span>
+                <h2 class="section-title">Projects That Push Boundaries</h2>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card featured reveal">
+                    <div class="project-glow"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <span class="project-tag">Agentic AI</span>
+                            <span class="project-tag">Enterprise</span>
+                        </div>
+                        <h3 class="project-title">AskLicense - Agentic AI Licensing Assistant</h3>
+                        <p class="project-description">
+                            An autonomous AI system that transforms how enterprises manage software licenses. 
+                            Users converse naturally while the agent reasons, decides, and executes complex 
+                            workflows—from license discovery to compliance verification.
+                        </p>
+                        <div class="project-features">
+                            <div class="feature">
+                                <span class="feature-icon">🔄</span>
+                                <span>Multi-step autonomous workflows</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">🛠️</span>
+                                <span>Real-time DB/API tool calling</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">🔐</span>
+                                <span>Role-based access control</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">📈</span>
+                                <span>LangSmith observability</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>LangChain</span>
+                            <span>LangGraph</span>
+                            <span>MCP</span>
+                            <span>OpenShift</span>
+                            <span>Kubernetes</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <span class="project-tag">Data Engineering</span>
+                            <span class="project-tag">Real-time</span>
+                        </div>
+                        <h3 class="project-title">Data Pipeline Orchestration & Integration</h3>
+                        <p class="project-description">
+                            High-performance batch and streaming pipelines enabling seamless data flow 
+                            across PostgreSQL, GCP, and Snowflake with intelligent caching and validation.
+                        </p>
+                        <ul class="project-highlights">
+                            <li><span class="highlight">50%</span> reduction in transfer time</li>
+                            <li>Real-time streaming capabilities</li>
+                            <li>Advanced data validation layer</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Kafka</span>
+                            <span>Snowflake</span>
+                            <span>GCP</span>
+                            <span>AWS S3</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <span class="project-tag">Security</span>
+                            <span class="project-tag">DevOps</span>
+                        </div>
+                        <h3 class="project-title">Centralized Password Management</h3>
+                        <p class="project-description">
+                            Microservices-based secret management system with passwordless authentication, 
+                            eliminating deployment friction and enhancing security posture.
+                        </p>
+                        <ul class="project-highlights">
+                            <li><span class="highlight">Zero</span> downtime deployments</li>
+                            <li>Real-time Splunk monitoring</li>
+                            <li>Vault-based secret storage</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>FastAPI</span>
+                            <span>Vault</span>
+                            <span>Splunk</span>
+                            <span>Kubernetes</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content reveal">
+                <span class="section-tag">Let's Connect</span>
+                <h2 class="section-title">Ready to Build Something Intelligent?</h2>
+                <p class="contact-description">
+                    Whether you're looking to implement Agentic AI systems, need expertise in autonomous 
+                    workflows, or want to discuss the future of intelligent automation—I'd love to hear from you.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:trmpsanjay@gmail.com" class="contact-card">
+                        <span class="contact-icon">✉️</span>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">trmpsanjay@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/trmpsanjay" target="_blank" rel="noopener" class="contact-card">
+                        <span class="contact-icon">💼</span>
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-value">linkedin.com/in/trmpsanjay</span>
+                    </a>
+                    <a href="https://github.com/trmpsanjay" target="_blank" rel="noopener" class="contact-card">
+                        <span class="contact-icon">🔗</span>
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value">github.com/trmpsanjay</span>
+                    </a>
+                </div>
+                <a href="mailto:trmpsanjay@gmail.com" class="btn btn-primary btn-large">
+                    Start a Conversation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    Designed & Built by <strong>Sanjay Kumar</strong> — Powered by curiosity and coffee ☕
+                </p>
+                <p class="footer-copyright">© 2026 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
-
 </html>
