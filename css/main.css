@@ -605,7 +605,7 @@ ul {
 }
 
 .stat:hover {
-    transform: rotateX(-5deg) translateY(-10px) scale(1.05);
+    transform: translateY(-6px);
     border-color: rgba(102, 126, 234, 0.4);
     box-shadow: 
         0 8px 12px rgba(0,0,0,0.2),
@@ -804,7 +804,7 @@ section {
 }
 
 .info-card:hover {
-    transform: perspective(1000px) rotateX(-2deg) rotateY(2deg) translateY(-12px) scale(1.02);
+    transform: translateY(-8px);
     border-color: rgba(102, 126, 234, 0.4);
     box-shadow: 
         var(--shadow-3d-hover),
@@ -911,7 +911,7 @@ section {
 }
 
 .skill-category:hover {
-    transform: perspective(1000px) rotateX(-3deg) translateY(-10px) scale(1.02);
+    transform: translateY(-6px);
     border-color: rgba(102, 126, 234, 0.4);
     box-shadow: 
         var(--shadow-3d-hover),
@@ -921,6 +921,384 @@ section {
 
 .skill-category:hover::after {
     opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Themed Skill Card Effects
+   -------------------------------------------------------------------------- */
+
+/* Base effect container */
+.skill-effect {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.skill-category:hover .skill-effect {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   AGENTIC AI - Neural Network Pulse Effect
+   ========================================================================== */
+.skill-agentic {
+    --theme-color: #667eea;
+}
+
+.agentic-effect {
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.3) 0%, transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(240, 147, 251, 0.2) 0%, transparent 25%),
+        radial-gradient(circle at 40% 80%, rgba(102, 126, 234, 0.25) 0%, transparent 25%),
+        radial-gradient(circle at 70% 70%, rgba(240, 147, 251, 0.2) 0%, transparent 25%);
+}
+
+.skill-agentic:hover .agentic-effect {
+    animation: agenticPulse 2s ease-in-out infinite;
+}
+
+@keyframes agenticPulse {
+    0%, 100% {
+        background: 
+            radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.3) 0%, transparent 25%),
+            radial-gradient(circle at 80% 30%, rgba(240, 147, 251, 0.2) 0%, transparent 25%),
+            radial-gradient(circle at 40% 80%, rgba(102, 126, 234, 0.25) 0%, transparent 25%),
+            radial-gradient(circle at 70% 70%, rgba(240, 147, 251, 0.2) 0%, transparent 25%);
+    }
+    50% {
+        background: 
+            radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.4) 0%, transparent 30%),
+            radial-gradient(circle at 70% 20%, rgba(240, 147, 251, 0.3) 0%, transparent 30%),
+            radial-gradient(circle at 50% 70%, rgba(102, 126, 234, 0.35) 0%, transparent 30%),
+            radial-gradient(circle at 60% 80%, rgba(240, 147, 251, 0.25) 0%, transparent 30%);
+    }
+}
+
+/* Connection lines for agent effect */
+.skill-agentic::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.skill-agentic:hover::before {
+    opacity: 1;
+    animation: connectionFlow 1.5s ease-in-out infinite;
+}
+
+@keyframes connectionFlow {
+    0% { transform: translateY(-20px) scaleX(0.5); opacity: 0; }
+    50% { transform: translateY(0) scaleX(1); opacity: 1; }
+    100% { transform: translateY(20px) scaleX(0.5); opacity: 0; }
+}
+
+/* ==========================================================================
+   LLM PLATFORMS - Brain Wave Effect
+   ========================================================================== */
+.skill-llm {
+    --theme-color: #8B5CF6;
+}
+
+.llm-effect {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, transparent 100%);
+}
+
+.skill-llm:hover .llm-effect {
+    animation: brainWave 3s ease-in-out infinite;
+}
+
+@keyframes brainWave {
+    0%, 100% {
+        background: 
+            linear-gradient(0deg, transparent 45%, rgba(139, 92, 246, 0.15) 50%, transparent 55%);
+        background-size: 100% 200%;
+        background-position: 0% 0%;
+    }
+    50% {
+        background: 
+            linear-gradient(0deg, transparent 45%, rgba(139, 92, 246, 0.2) 50%, transparent 55%);
+        background-size: 100% 200%;
+        background-position: 0% 100%;
+    }
+}
+
+/* Thinking dots for LLM */
+.skill-llm::after {
+    content: '• • •';
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 12px;
+    color: rgba(139, 92, 246, 0);
+    letter-spacing: 4px;
+    transition: color 0.3s ease;
+}
+
+.skill-llm:hover::after {
+    color: rgba(139, 92, 246, 0.6);
+    animation: thinking 1.5s ease-in-out infinite;
+}
+
+@keyframes thinking {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* ==========================================================================
+   PROGRAMMING - Code Rain Effect
+   ========================================================================== */
+.skill-programming {
+    --theme-color: #F59E0B;
+}
+
+.code-effect {
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 20px,
+        rgba(245, 158, 11, 0.03) 20px,
+        rgba(245, 158, 11, 0.03) 21px
+    );
+}
+
+.skill-programming:hover .code-effect {
+    animation: codeScroll 2s linear infinite;
+}
+
+@keyframes codeScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 40px; }
+}
+
+/* Cursor blink for code */
+.skill-programming::after {
+    content: '_';
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    font-family: monospace;
+    font-size: 18px;
+    color: rgba(245, 158, 11, 0);
+    transition: color 0.3s ease;
+}
+
+.skill-programming:hover::after {
+    color: rgba(245, 158, 11, 0.8);
+    animation: cursorBlink 1s step-end infinite;
+}
+
+/* ==========================================================================
+   FRAMEWORKS - Gear/Tool Rotation Effect
+   ========================================================================== */
+.skill-frameworks {
+    --theme-color: #10B981;
+}
+
+.tools-effect {
+    background: conic-gradient(from 0deg at 90% 90%, transparent 0deg, rgba(16, 185, 129, 0.1) 90deg, transparent 180deg);
+}
+
+.skill-frameworks:hover .tools-effect {
+    animation: gearSpin 4s linear infinite;
+}
+
+@keyframes gearSpin {
+    0% { 
+        background: conic-gradient(from 0deg at 90% 90%, transparent 0deg, rgba(16, 185, 129, 0.15) 90deg, transparent 180deg);
+    }
+    100% { 
+        background: conic-gradient(from 360deg at 90% 90%, transparent 0deg, rgba(16, 185, 129, 0.15) 90deg, transparent 180deg);
+    }
+}
+
+/* ==========================================================================
+   DATA & CLOUD - Data Stream Effect
+   ========================================================================== */
+.skill-data {
+    --theme-color: #06B6D4;
+}
+
+.data-effect {
+    background: linear-gradient(180deg, transparent 0%, rgba(6, 182, 212, 0.05) 100%);
+}
+
+.skill-data:hover .data-effect {
+    animation: dataStream 1.5s ease-in-out infinite;
+}
+
+@keyframes dataStream {
+    0% {
+        background: 
+            linear-gradient(180deg, rgba(6, 182, 212, 0.15) 0%, transparent 20%, transparent 100%);
+    }
+    50% {
+        background: 
+            linear-gradient(180deg, transparent 0%, transparent 40%, rgba(6, 182, 212, 0.15) 50%, transparent 60%, transparent 100%);
+    }
+    100% {
+        background: 
+            linear-gradient(180deg, transparent 0%, transparent 80%, rgba(6, 182, 212, 0.15) 100%);
+    }
+}
+
+/* Binary particles */
+.skill-data::after {
+    content: '01';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: monospace;
+    font-size: 10px;
+    color: rgba(6, 182, 212, 0);
+    transition: color 0.3s ease;
+}
+
+.skill-data:hover::after {
+    color: rgba(6, 182, 212, 0.4);
+    animation: binaryFloat 2s ease-in-out infinite;
+}
+
+@keyframes binaryFloat {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(-10px); opacity: 0.8; }
+}
+
+/* ==========================================================================
+   DEVOPS - Pipeline Flow Effect
+   ========================================================================== */
+.skill-devops {
+    --theme-color: #EF4444;
+}
+
+.devops-effect {
+    background: linear-gradient(90deg, transparent 0%, transparent 100%);
+}
+
+.skill-devops:hover .devops-effect {
+    animation: pipelineFlow 2s ease-in-out infinite;
+}
+
+@keyframes pipelineFlow {
+    0% {
+        background: linear-gradient(90deg, 
+            rgba(239, 68, 68, 0.2) 0%, 
+            rgba(239, 68, 68, 0.1) 10%,
+            transparent 20%,
+            transparent 100%
+        );
+    }
+    33% {
+        background: linear-gradient(90deg, 
+            transparent 0%,
+            transparent 30%,
+            rgba(34, 197, 94, 0.2) 40%,
+            rgba(34, 197, 94, 0.1) 50%,
+            transparent 60%,
+            transparent 100%
+        );
+    }
+    66% {
+        background: linear-gradient(90deg, 
+            transparent 0%,
+            transparent 60%,
+            rgba(59, 130, 246, 0.2) 70%,
+            rgba(59, 130, 246, 0.1) 80%,
+            transparent 90%,
+            transparent 100%
+        );
+    }
+    100% {
+        background: linear-gradient(90deg, 
+            transparent 0%,
+            transparent 80%,
+            rgba(34, 197, 94, 0.3) 90%,
+            rgba(34, 197, 94, 0.2) 100%
+        );
+    }
+}
+
+/* Pipeline stages indicator */
+.skill-devops::after {
+    content: '● ● ●';
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 8px;
+    letter-spacing: 6px;
+    color: rgba(239, 68, 68, 0);
+    transition: color 0.3s ease;
+}
+
+.skill-devops:hover::after {
+    animation: pipelineStages 2s ease-in-out infinite;
+}
+
+@keyframes pipelineStages {
+    0% { color: rgba(239, 68, 68, 0.8); }
+    33% { color: rgba(245, 158, 11, 0.8); }
+    66% { color: rgba(59, 130, 246, 0.8); }
+    100% { color: rgba(34, 197, 94, 0.8); }
+}
+
+/* ==========================================================================
+   AI/ML - Neural Network Effect
+   ========================================================================== */
+.skill-aiml {
+    --theme-color: #EC4899;
+}
+
+.neural-effect {
+    background: radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+}
+
+.skill-aiml:hover .neural-effect {
+    animation: neuralPulse 2s ease-in-out infinite;
+}
+
+@keyframes neuralPulse {
+    0%, 100% {
+        background: 
+            radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.15) 0%, transparent 20%),
+            radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 20%),
+            radial-gradient(circle at 50% 70%, rgba(236, 72, 153, 0.15) 0%, transparent 20%);
+    }
+    50% {
+        background: 
+            radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.25) 0%, transparent 30%),
+            radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.25) 0%, transparent 30%),
+            radial-gradient(circle at 50% 70%, rgba(236, 72, 153, 0.25) 0%, transparent 30%);
+    }
+}
+
+/* Learning indicator */
+.skill-aiml::after {
+    content: '∞';
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 20px;
+    color: rgba(236, 72, 153, 0);
+    transition: color 0.3s ease;
+}
+
+.skill-aiml:hover::after {
+    color: rgba(236, 72, 153, 0.5);
+    animation: infiniteLearn 3s linear infinite;
+}
+
+@keyframes infiniteLearn {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .category-header {
@@ -1084,7 +1462,7 @@ section {
 }
 
 .timeline-content:hover {
-    transform: perspective(1000px) rotateY(-2deg) translateX(8px);
+    transform: translateX(6px);
     border-color: rgba(102, 126, 234, 0.4);
     box-shadow: 
         var(--shadow-3d-hover),
@@ -1214,7 +1592,7 @@ section {
 }
 
 .project-card:hover {
-    transform: perspective(1200px) rotateX(-4deg) rotateY(2deg) translateY(-15px) translateZ(20px);
+    transform: translateY(-10px);
     border-color: rgba(102, 126, 234, 0.5);
     box-shadow: 
         var(--shadow-3d-hover),
@@ -1426,7 +1804,7 @@ section {
 }
 
 .contact-card:hover {
-    transform: perspective(800px) rotateX(-5deg) translateY(-12px) scale(1.03);
+    transform: translateY(-8px);
     border-color: rgba(102, 126, 234, 0.4);
     box-shadow: 
         0 8px 16px rgba(0,0,0,0.2),
@@ -1713,6 +2091,312 @@ section {
 .hero .reveal:nth-child(4) { transition-delay: 0.65s; }
 .hero .reveal:nth-child(5) { transition-delay: 0.8s; }
 .hero .reveal:nth-child(6) { transition-delay: 0.95s; }
+
+/* --------------------------------------------------------------------------
+   Flight Scroll & Landing Effects
+   -------------------------------------------------------------------------- */
+
+/* Body state during scroll */
+.is-scrolling {
+    pointer-events: none;
+}
+
+/* Section landing animation */
+.section-landing {
+    animation: sectionLand 0.8s ease-out;
+}
+
+@keyframes sectionLand {
+    0% {
+        opacity: 0.7;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Landing ripple effect */
+.landing-ripple {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: rippleExpand 1s ease-out forwards;
+    z-index: 100;
+}
+
+@keyframes rippleExpand {
+    0% {
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+    }
+    100% {
+        width: 600px;
+        height: 600px;
+        opacity: 0;
+    }
+}
+
+/* Section header glow on landing */
+.section-landing .section-header {
+    animation: headerGlow 0.8s ease-out;
+}
+
+@keyframes headerGlow {
+    0% {
+        filter: brightness(1);
+    }
+    30% {
+        filter: brightness(1.3) drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/* Active nav link style */
+.nav-link.active {
+    color: var(--color-text-primary) !important;
+    background: rgba(102, 126, 234, 0.15);
+}
+
+/* Smooth scroll indicator fade during flight */
+.is-scrolling .scroll-indicator {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Elegant Hover Effects - Shine & Glow
+   -------------------------------------------------------------------------- */
+
+/* Shine sweep effect on cards */
+.info-card,
+.skill-category,
+.project-card,
+.contact-card,
+.stat,
+.timeline-content {
+    overflow: hidden;
+}
+
+.info-card::after,
+.skill-category::after,
+.project-card::after,
+.contact-card::after,
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0.03),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.8s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.info-card:hover::after,
+.skill-category:hover::after,
+.project-card:hover::after,
+.contact-card:hover::after,
+.timeline-content:hover::after {
+    left: 150%;
+}
+
+/* Soft border glow animation */
+@keyframes borderGlow {
+    0%, 100% {
+        border-color: rgba(102, 126, 234, 0.3);
+    }
+    50% {
+        border-color: rgba(240, 147, 251, 0.4);
+    }
+}
+
+.project-card.featured:hover {
+    animation: borderGlow 2s ease-in-out infinite;
+}
+
+/* Gentle pulse for featured skills */
+@keyframes gentlePulse {
+    0%, 100% {
+        box-shadow: 
+            0 2px 4px rgba(0,0,0,0.2),
+            0 4px 8px rgba(102, 126, 234, 0.1),
+            inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    50% {
+        box-shadow: 
+            0 2px 4px rgba(0,0,0,0.2),
+            0 4px 8px rgba(102, 126, 234, 0.15),
+            0 0 15px rgba(102, 126, 234, 0.15),
+            inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+}
+
+.skill-tag.featured {
+    animation: gentlePulse 3s ease-in-out infinite;
+}
+
+/* Smooth text highlight on hover */
+.achievements li:hover {
+    color: var(--color-text-primary);
+    transition: color 0.3s ease;
+}
+
+.achievements li:hover strong {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Feature items subtle lift */
+.feature {
+    position: relative;
+}
+
+.feature::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature:hover::before {
+    opacity: 1;
+}
+
+.feature:hover {
+    color: var(--color-text-primary);
+}
+
+/* Smooth icon bounce */
+.feature:hover .feature-icon,
+.contact-card:hover .contact-icon {
+    animation: iconBounce 0.5s ease;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Project tech tags hover */
+.project-tech span {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-tech span:hover {
+    background: rgba(102, 126, 234, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+/* Nav link smooth underline */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.nav-link:hover::after {
+    width: 60%;
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+/* Section title hover effect */
+.section-title {
+    transition: all 0.3s ease;
+}
+
+.section-header:hover .section-title {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Stat number counter feel */
+.stat:hover .stat-number {
+    animation: countPop 0.4s ease;
+}
+
+@keyframes countPop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Contact value highlight */
+.contact-card:hover .contact-value {
+    color: var(--color-text-primary);
+}
+
+.contact-card:hover .contact-label {
+    color: var(--color-accent);
+}
+
+/* Project highlights checkmark animation */
+.project-highlights li::before {
+    transition: all 0.3s ease;
+}
+
+.project-highlights li:hover::before {
+    transform: scale(1.3);
+    color: #38ef7d;
+}
+
+/* Timeline marker enhanced glow on content hover */
+.timeline-item:hover .timeline-marker {
+    box-shadow: 
+        0 0 20px rgba(102, 126, 234, 0.6),
+        0 0 40px rgba(102, 126, 234, 0.4),
+        0 0 60px rgba(102, 126, 234, 0.2);
+}
+
+/* Smooth focus states for accessibility */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.contact-card:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
 
 /* --------------------------------------------------------------------------
    Custom Scrollbar

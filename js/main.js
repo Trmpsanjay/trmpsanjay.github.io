@@ -49,8 +49,55 @@
     }
 
     // ==========================================================================
-    // Smooth Scroll for Navigation Links
+    // Smooth Flight-like Scroll Animation
     // ==========================================================================
+    
+    // Custom easing function for smooth flight effect
+    function easeInOutCubic(t) {
+        return t < 0.5 
+            ? 4 * t * t * t 
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    
+    // Smooth scroll with custom easing
+    function smoothScrollTo(targetPosition, duration = 1200) {
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+        
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+            const easedProgress = easeInOutCubic(progress);
+            
+            window.scrollTo(0, startPosition + distance * easedProgress);
+            
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
+        
+        requestAnimationFrame(animation);
+    }
+    
+    // Landing effect - highlight section when arrived
+    function addLandingEffect(target) {
+        // Add landing class for visual feedback
+        target.classList.add('section-landing');
+        
+        // Create ripple effect element
+        const ripple = document.createElement('div');
+        ripple.className = 'landing-ripple';
+        target.appendChild(ripple);
+        
+        // Remove effects after animation
+        setTimeout(() => {
+            target.classList.remove('section-landing');
+            ripple.remove();
+        }, 1000);
+    }
+    
     function handleNavLinkClick(e) {
         const href = this.getAttribute('href');
         
@@ -61,13 +108,23 @@
             if (target) {
                 const offsetTop = target.offsetTop - 80; // Account for fixed navbar
                 
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                // Add flying class to body for potential effects
+                document.body.classList.add('is-scrolling');
+                
+                // Smooth flight scroll
+                smoothScrollTo(offsetTop, 1000);
+                
+                // Add landing effect after scroll completes
+                setTimeout(() => {
+                    document.body.classList.remove('is-scrolling');
+                    addLandingEffect(target);
+                }, 1000);
                 
                 // Close mobile nav if open
                 closeMobileNav();
+                
+                // Update URL hash without jumping
+                history.pushState(null, null, href);
             }
         }
     }
@@ -245,6 +302,13 @@
         
         navLinks.forEach(link => {
             link.addEventListener('click', handleNavLinkClick);
+        });
+        
+        // Also apply smooth scroll to all internal anchor links (CTA buttons, etc.)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (!anchor.classList.contains('nav-link')) {
+                anchor.addEventListener('click', handleNavLinkClick);
+            }
         });
 
         // Close mobile nav when clicking outside
